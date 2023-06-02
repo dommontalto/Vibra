@@ -29,6 +29,7 @@
 		9BC05F902A29163F005D6B45 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC05F8F2A29163F005D6B45 /* AudioTrack.swift */; };
 		9BC05F922A291647005D6B45 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC05F912A291647005D6B45 /* Artist.swift */; };
 		9BC05F942A29165E005D6B45 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC05F932A29165E005D6B45 /* UserProfile.swift */; };
+		9BC05F962A29F25D005D6B45 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC05F952A29F25D005D6B45 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		9BC05F8F2A29163F005D6B45 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		9BC05F912A291647005D6B45 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9BC05F932A29165E005D6B45 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		9BC05F952A29F25D005D6B45 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +138,10 @@
 		9BC05F6F2A291016005D6B45 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9BC05F602A290F79005D6B45 /* Assets.xcassets */,
 				9BC05F572A290F78005D6B45 /* AppDelegate.swift */,
 				9BC05F592A290F78005D6B45 /* SceneDelegate.swift */,
-				9BC05F602A290F79005D6B45 /* Assets.xcassets */,
+				9BC05F952A29F25D005D6B45 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				9BC05F792A29153D005D6B45 /* AuthViewController.swift in Sources */,
 				9BC05F752A2914F5005D6B45 /* LibaryViewController.swift in Sources */,
 				9BC05F942A29165E005D6B45 /* UserProfile.swift in Sources */,
+				9BC05F962A29F25D005D6B45 /* Extensions.swift in Sources */,
 				9BC05F582A290F78005D6B45 /* AppDelegate.swift in Sources */,
 				9BC05F922A291647005D6B45 /* Artist.swift in Sources */,
 				9BC05F832A291598005D6B45 /* PlaylistViewController.swift in Sources */,
