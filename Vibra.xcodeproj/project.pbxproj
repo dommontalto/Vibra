@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30637DC1185D608E344FC406 /* Pods_Vibra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB72EBB854C77B170D2861D /* Pods_Vibra.framework */; };
 		9B3F15202A37855D006827CA /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F151F2A37855D006827CA /* AuthResponse.swift */; };
 		9BB23C4D2A43366700E85107 /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB23C4C2A43366700E85107 /* SettingsModels.swift */; };
 		9BC05F582A290F78005D6B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC05F572A290F78005D6B45 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EB72EBB854C77B170D2861D /* Pods_Vibra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vibra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3F151F2A37855D006827CA /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		9BB23C4C2A43366700E85107 /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		9BC05F542A290F78005D6B45 /* Vibra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vibra.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,8 @@
 		9BC05F912A291647005D6B45 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9BC05F932A29165E005D6B45 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		9BC05F952A29F25D005D6B45 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CFC62AA2599371279B7B210B /* Pods-Vibra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vibra.release.xcconfig"; path = "Target Support Files/Pods-Vibra/Pods-Vibra.release.xcconfig"; sourceTree = "<group>"; };
+		E59B46A5BFDA46B0739A8E16 /* Pods-Vibra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vibra.debug.xcconfig"; path = "Target Support Files/Pods-Vibra/Pods-Vibra.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,17 +73,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30637DC1185D608E344FC406 /* Pods_Vibra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		476832F592A601D1BE86F38B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E59B46A5BFDA46B0739A8E16 /* Pods-Vibra.debug.xcconfig */,
+				CFC62AA2599371279B7B210B /* Pods-Vibra.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		67E82FAB0D346D42E55647E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EB72EBB854C77B170D2861D /* Pods_Vibra.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9BC05F4B2A290F78005D6B45 = {
 			isa = PBXGroup;
 			children = (
 				9BC05F562A290F78005D6B45 /* Vibra */,
 				9BC05F552A290F78005D6B45 /* Products */,
+				476832F592A601D1BE86F38B /* Pods */,
+				67E82FAB0D346D42E55647E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BC05F682A290F79005D6B45 /* Build configuration list for PBXNativeTarget "Vibra" */;
 			buildPhases = (
+				9F7230724E013429BD2740E8 /* [CP] Check Pods Manifest.lock */,
 				9BC05F502A290F78005D6B45 /* Sources */,
 				9BC05F512A290F78005D6B45 /* Frameworks */,
 				9BC05F522A290F78005D6B45 /* Resources */,
+				483F81D8D306C4EB6227F706 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +279,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		483F81D8D306C4EB6227F706 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vibra/Pods-Vibra-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vibra/Pods-Vibra-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Vibra/Pods-Vibra-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F7230724E013429BD2740E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vibra-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BC05F502A290F78005D6B45 /* Sources */ = {
@@ -414,6 +483,7 @@
 		};
 		9BC05F692A290F79005D6B45 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E59B46A5BFDA46B0739A8E16 /* Pods-Vibra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -441,6 +511,7 @@
 		};
 		9BC05F6A2A290F79005D6B45 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFC62AA2599371279B7B210B /* Pods-Vibra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
