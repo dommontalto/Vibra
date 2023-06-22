@@ -49,10 +49,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func signOutTapped(){
-        let vc = AuthViewController()
-        vc.title = "Sign In"
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
