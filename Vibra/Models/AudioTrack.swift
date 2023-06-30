@@ -5,8 +5,6 @@
 //  Created by Dom Montalto on 1/6/2023.
 //
 
-import Foundation
-
 struct AudioTrack: Codable {
     let album: Album?
     let artists: [Artist]

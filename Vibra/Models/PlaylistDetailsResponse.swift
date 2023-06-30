@@ -17,10 +17,10 @@ struct PlaylistDetailsResponse: Codable {
 }
 
 struct PlaylistTracksResponse: Codable {
-    let items: [PlaylistItem]
+    let items: [PlaylistItem?]
 }
 
 struct PlaylistItem: Codable {
-    let track: AudioTrack
+    let track: AudioTrack?
 }
 

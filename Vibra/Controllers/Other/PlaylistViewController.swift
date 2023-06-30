@@ -13,7 +13,10 @@ class PlaylistViewController: UIViewController {
     
     private let collectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { _ , _ in
+        collectionViewLayout:
+            // tracks
+            
+            UICollectionViewCompositionalLayout(sectionProvider: { _ , _ -> NSCollectionLayoutSection? in
             let item = NSCollectionLayoutItem(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
@@ -31,6 +34,8 @@ class PlaylistViewController: UIViewController {
                 subitem: item,
                 count: 1
             )
+            
+            // header
             
             let section = NSCollectionLayoutSection(group: group)
             section.boundarySupplementaryItems = [NSCollectionLayoutBoundarySupplementaryItem(
@@ -59,6 +64,8 @@ class PlaylistViewController: UIViewController {
         title = playlist.name
         view.backgroundColor = .systemBackground
         
+        view.addSubview(collectionView)
+        
         collectionView.register(PlaylistHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier)
         collectionView.register(RecommendedTrackCollectionViewCell.self, forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier)
         collectionView.backgroundColor = .systemBackground
@@ -71,11 +78,12 @@ class PlaylistViewController: UIViewController {
                 switch result {
                 case .success(let model):
                     self?.viewModels = model.tracks.items.compactMap({RecommendedTrackCellViewModel(
-                        name: $0.track.name,
-                        artistName: $0.track.artists.first?.name ?? "-",
-                        artworkURL: URL(string: $0.track.album?.images.first?.url ?? ""
+                        name: $0?.track?.name ?? "",
+                        artistName: $0!.track?.artists.first?.name ?? "-",
+                        artworkURL: URL(string: $0?.track?.album?.images.first?.url ?? ""
                         )
                     )})
+                  //  dump(self?.viewModels)
                     self?.collectionView.reloadData()
                     break
                 case .failure(let error):
@@ -83,6 +91,20 @@ class PlaylistViewController: UIViewController {
                 }
             }
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+    }
+    
+    @objc private func didTapShare() {
+        guard let url = URL(string: playlist.external_urls["spotify"] ?? "") else {
+            return
+        }
+        let vc = UIActivityViewController(
+            activityItems: ["Check out this cool playlist I found!", url],
+            applicationActivities: []
+        )
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -115,17 +137,33 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
             guard let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier,
-                for: indexPath) as? PlaylistHeaderCollectionReusableView else {
-                    return UICollectionReusableView()
+                for: indexPath
+            ) as? PlaylistHeaderCollectionReusableView else {
+                return UICollectionReusableView()
             }
+            let headerViewModel = PlaylistHeaderViewViewModel(
+                name: playlist.name,
+                ownderName: playlist.owner.display_name,
+                description: playlist.description,
+                artworkURL: URL(string: playlist.images.first?.url ?? "")
+            )
+            header.configure(with: headerViewModel)
+            header.delegate = self
             return header
-        } else {
-            return UICollectionReusableView()
         }
+        return UICollectionReusableView()
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        // play song
     }
   
+}
+
+extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
+    func PlaylistHeaderCollectionReusableViewDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
+        // play all
+    }
 }
